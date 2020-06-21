@@ -27,6 +27,7 @@ class Patroller extends Command {
     // 1) check the dependencies for missing / unused using depcheck
     // 2) clean the package.json using clean-package-json
     // 3) check the licenses using license-checker
+    // 4) add emojis to the logs
   }
 }
 
