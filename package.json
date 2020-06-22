@@ -2,6 +2,7 @@
   "name": "patroller",
   "version": "1.0.0",
   "author": "Shivam Dhruva",
+  "description": "A CLI tool for removing unused dependencies, sorting the dependencies, locking the dependencies, and keeping a watch on the licenses.",
   "bin": {
     "patroller": "./bin/run"
   },
