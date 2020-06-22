@@ -52,7 +52,14 @@
   ],
   "homepage": "https://github.com/shiva-hack/patroller",
   "keywords": [
-    "oclif"
+    "cli",
+    "packages",
+    "dependencies",
+    "unused",
+    "sort",
+    "lock",
+    "watch",
+    "license"
   ],
   "license": "MIT",
   "main": "lib/index.js",
