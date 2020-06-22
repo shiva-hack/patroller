@@ -10,6 +10,8 @@ A CLI tool for removing unused dependencies, sorting the dependencies, locking t
 - [Patroller](#patroller)
 - [Usage](#usage)
 - [Options](#options)
+- [Scripts](#scripts)
+- [Husky Hooks](#husky-hooks)
 <!-- tocstop -->
 
 # Usage
@@ -30,7 +32,7 @@ USAGE
 <!-- usagestop -->
 
 # Options
-<!-- commands -->
+<!-- options -->
 - `-h | --help` : shows the CLI help
 - `-v | --version` : shows the CLI version
 - `-s | --sort` : sorts the dependencies in package.json
@@ -40,4 +42,40 @@ USAGE
 - `-a | --all` : performs all the actions above (except help and version)
 - `--yarn` : uses yarn instead of npm
 - `-f | --force` : forcefully removes unused dependencies
-<!-- commandsstop -->
+<!-- optionsstop -->
+
+# Scripts
+<!-- scripts -->
+Use it in the `package.json` for the CI CD to keep your dependencies clean.
+
+```json
+{
+  ...
+  "scripts": {
+    "patroller": "patroller --all --force"
+  }
+}
+```
+<!-- scriptsstop -->
+
+# Husky Hooks
+<!-- husky -->
+Install husky
+```sh-session
+$ npm install husky --save-dev
+```
+
+Update the `package.json`
+```json
+{
+  "scripts": {
+    "patroller": "patroller --all --force"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit" : "npm patroller"
+    }
+  }
+}
+```
+<!-- huskystop -->
