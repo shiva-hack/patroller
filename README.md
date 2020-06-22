@@ -19,7 +19,7 @@ $ npm install -g patroller
 $ patroller COMMAND
 running command...
 $ patroller (-v|--version|version)
-patroller/0.0.0 darwin-x64 node-v12.16.3
+patroller/1.0.0 darwin-x64 node-v12.16.3
 $ patroller --help [COMMAND]
 USAGE
   $ patroller COMMAND
