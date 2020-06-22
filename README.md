@@ -7,26 +7,23 @@ Patroller
 A CLI tool for removing unused dependencies, sorting the dependencies, locking the dependencies, and keeping a watch on the licenses.
 
 <!-- toc -->
-- [Patroller](#patroller)
-- [Usage](#usage)
-- [Options](#options)
-- [Scripts](#scripts)
-- [Husky Hooks](#husky-hooks)
+* [Usage](#usage)
+* [Options](#options)
+* [Scripts](#scripts)
+* [Husky Hooks](#husky-hooks)
 <!-- tocstop -->
 
 # Usage
 <!-- usage -->
 ```sh-session
 $ npm install -g patroller
-
-$ patroller OPTION
-
-$ patroller (-v|--version)
+$ patroller COMMAND
+running command...
+$ patroller (-v|--version|version)
 patroller/1.0.0 darwin-x64 node-v12.16.3
-
-$ patroller --help [OPTION]
+$ patroller --help [COMMAND]
 USAGE
-  $ patroller OPTION
+  $ patroller COMMAND
 ...
 ```
 <!-- usagestop -->
