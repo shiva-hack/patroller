@@ -19,31 +19,37 @@ interface MInfo extends licenseChecker.ModuleInfo {
 }
 
 class Patroller extends Command {
-  static description = 'describe the command here'
+  static description =
+    'A CLI tool for removing unused dependencies, sorting the dependencies, locking the dependencies, and keeping a watch on the licenses.'
 
   static flags = {
-    // flag with no value ( -a , --all)
-    all: flags.boolean({char: 'a'}),
-    // flag with no value ( -l , --lock)
-    lock: flags.boolean({char: 'l'}),
-    // flag with no value (--yarn)
-    yarn: flags.boolean(),
-    // flag with no value (--license)
-    license: flags.boolean(),
-    // flag with no value (-u, --unused)
-    unused: flags.boolean({char: 'u'}),
-    // flag with no value (-s, --sort)
-    sort: flags.boolean({char: 's'}),
-    // add --version flag to show CLI version
-    version: flags.version({char: 'v'}),
+    all: flags.boolean({char: 'a', description: 'performs all the actions'}),
+    force: flags.boolean({
+      char: 'f',
+      description: 'forcefully removes unused dependencies, use with --unused',
+    }),
     help: flags.help({char: 'h'}),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: flags.boolean({char: 'f'}),
+    license: flags.boolean({
+      description:
+        'checks the dependencies for difference in license from the root repository',
+    }),
+    lock: flags.boolean({
+      char: 'l',
+      description:
+        'locks the dependencies in package.json and removes the wildcard ( ^ )',
+    }),
+    sort: flags.boolean({
+      char: 's',
+      description: 'sorts the dependencies in package.json',
+    }),
+    unused: flags.boolean({
+      char: 'u',
+      description:
+        'removes the unused dependencies from node_modules and the package.json',
+    }),
+    version: flags.version({char: 'v'}),
+    yarn: flags.boolean({description: 'uses yarn instead of npm'}),
   }
-
-  static args = [{name: 'file'}]
 
   async getUnusedDependencies(): Promise<depcheck.Results> {
     return new Promise((resolve, reject) => {
@@ -68,9 +74,7 @@ class Patroller extends Command {
     const issues = [...dependencies, ...devDependencies]
 
     if (issues.length === 0) {
-      this.log(
-        chalk.green(`${emoji.get(':thumbsup:')} no unused dependencies`)
-      )
+      this.log(chalk.green(`${emoji.get(':thumbsup:')} no unused dependencies`))
       return
     }
 
